@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const myPath = 'C:/Users/qq/Development/HTML-builder/01-read-file/text.txt';
+const myPath = __dirname;
+// console.log(__dirname);
+// console.log(__filename);
 const pathInfo = {
     fileName: path.basename(myPath),
     folderName: path.dirname(myPath),
@@ -8,7 +10,9 @@ const pathInfo = {
     absoluteOrNot: path.isAbsolute(myPath),
     detailInfo: path.parse(myPath),
 }
-const pathToText = [pathInfo.folderName, pathInfo.fileName,].join('/');
+const file = 'text.txt'
+const pathToText = path.join(pathInfo.folderName, pathInfo.fileName, file);
+// const pathToText = [pathInfo.folderName, pathInfo.fileName,].join('/');
 // console.log(pathToText);
 const read = fs.createReadStream(pathToText, 'utf8');
 read.on('data', (text) => {
