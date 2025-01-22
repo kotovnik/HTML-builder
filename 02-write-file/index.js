@@ -2,15 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const readLine = require('readline');
 const myPath = __dirname;
-const pathInfo = {
-    fileName: path.basename(myPath),
-    folderName: path.dirname(myPath),
-    fileExtension: path.extname(myPath),
-    absoluteOrNot: path.isAbsolute(myPath),
-    detailInfo: path.parse(myPath),
-}
 const file = 'text.txt'
-const pathToText = path.join(pathInfo.folderName, pathInfo.fileName, file);
+const pathToText = path.join(__dirname, file);
 const writeStream = fs.createWriteStream(pathToText, { flags: 'a' });
 const read = readLine.createInterface({
     input: process.stdin,
