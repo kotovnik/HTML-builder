@@ -9,10 +9,10 @@ const read = readLine.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
-console.log("Enter the text to write it to a file. To exit, enter 'q'");
+console.log("Enter the text to write it to a file. To exit, enter 'exit'");
 function writeText() {
     read.question("Enter the text (or something): ", (text) =>{
-        if((text === 'q') || (text === 'й')){
+        if(text === 'exit'){
             console.log("You're out of the input");
             read.close();
             writeStream.end();
