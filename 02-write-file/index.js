@@ -3,7 +3,7 @@ const path = require('path');
 const readLine = require('readline');
 const myPath = __dirname;
 const file = 'text.txt'
-const pathToText = path.join(__dirname, file);
+const pathToText = path.join(myPath, file);
 const writeStream = fs.createWriteStream(pathToText, { flags: 'a' });
 const read = readLine.createInterface({
     input: process.stdin,
