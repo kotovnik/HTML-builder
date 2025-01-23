@@ -8,7 +8,6 @@ async function getInfoOfFiles() {
         const allFiles = await fs.promises.readdir(pathToFolder, { withFileTypes: true });
         for (const file of allFiles) {
             const fileName = file.name;
-            console.log(fileName);
             const pathToFile = path.join(pathToFolder, fileName);
             if (file.isFile()) {
                 const fileExtension = path.extname(fileName);
