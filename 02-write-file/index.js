@@ -10,6 +10,12 @@ const read = readLine.createInterface({
     output: process.stdout,
 });
 console.log("Enter the text to write it to a file. To exit, enter 'exit'");
+read.on('SIGINT', () => {
+    console.log("You're out of the input");
+    read.close();
+    writeStream.end();
+    process.exit();
+});
 function writeText() {
     read.question("Enter the text (or something): ", (text) =>{
         if(text === 'exit'){
