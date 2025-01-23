@@ -5,9 +5,7 @@ const copyFolder = 'files-copy';
 const folder = 'files';
 const pathToCopyFolder = path.join(myPath, copyFolder);
 const pathToFolder = path.join(myPath, folder);
-// console.log(copyFolder);
-// console.log(`pathToFolder: ${pathToFolder}`);
-// console.log(`pathToCopyFolder: ${pathToCopyFolder}`);
+
 async function copyDir() {
     try {
         await fs.promises.mkdir(pathToCopyFolder, { recursive: true });
@@ -37,7 +35,7 @@ async function copyDirRecursive(origDir, twinDir) {
             if (info.isDirectory()) {
                 await copyDirRecursive(origDir, twinDir);
             } else {
-                await fs.promises.copyFile(originalPath, twinPath);
+                await fs.promises.copyFile(origPath, twinPath);
             }
         }
     } catch (error) {
